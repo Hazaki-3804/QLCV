@@ -1,0 +1,365 @@
+/* .brand-image {
+    width: 40px;
+    height: 40px;
+    object-fit: cover;
+}
+.font-custom {
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+.none-style {
+    list-style: none;
+    padding-left: 0;
+}
+.none-style li {
+    margin-bottom: 10px;
+}
+.card img {
+    width: 60px;
+    height: 60px;
+}
+
+body {
+    font-family: "Roboto", sans-serif;
+    margin: 0;
+} */
+
+/* HERO */
+.hero-section {
+    position: relative;
+    padding: 9rem 0;
+    overflow: hidden;
+    background: #0a2540; /* Fallback màu nếu video không tải */
+}
+
+.hero-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0;
+    opacity: 0.6;
+}
+
+.particle-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 3;
+    max-width: 65%;
+    margin: 0 auto;
+}
+
+.hero-image {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 45%;
+    z-index: 2;
+    opacity: 0.85;
+    transition: opacity 0.5s ease;
+}
+
+.hero-image img {
+    border-radius: 30px;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
+    object-fit: cover;
+}
+
+.hero-section:hover .hero-image {
+    opacity: 0.95;
+}
+
+.hero-section h1 {
+    font-size: 5rem;
+    font-weight: 900;
+    line-height: 1.1;
+    text-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+}
+
+.gradient-text {
+    background: linear-gradient(45deg, #00bfff, #40c4ff, #00bfff);
+    background-size: 200% 100%;
+    animation: gradientTextFlow 4s ease infinite;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.hero-section .lead {
+    font-size: 1.5rem;
+    font-weight: 400;
+    max-width: 850px;
+    margin: 0elian auto;
+    opacity: 0.9;
+}
+
+/* Hiệu ứng đánh máy */
+.typing-effect {
+    overflow: hidden;
+    white-space: nowrap;
+    animation: typing 3s steps(40, end) 1s 1 normal both;
+}
+
+@keyframes typing {
+    from {
+        width: 0;
+    }
+    to {
+        width: 100%;
+    }
+}
+
+.hero-section .btn-primary {
+    background: linear-gradient(45deg, #00bfff, #40c4ff);
+    background-size: 200% 100%;
+    animation: gradientTextFlow 4s ease infinite;
+    border: none;
+    padding: 1.2rem 4rem;
+    border-radius: 50px;
+    font-size: 1.3rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    box-shadow: 0 6px 20px rgba(0, 191, 255, 0.6);
+    transition: all 0.4s ease;
+}
+
+.hero-section .btn-primary:hover {
+    background: linear-gradient(45deg, #009acd, #00bfff);
+    transform: translateY(-6px);
+    box-shadow: 0 12px 25px rgba(0, 191, 255, 0.7);
+}
+
+.hero-section .btn-primary:active {
+    transform: translateY(0);
+    box-shadow: 0 4px 12px rgba(0, 191, 255, 0.5);
+}
+
+.hero-section .btn-primary.pulse {
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+.hero-section .btn-outline-light {
+    border: 2px solid transparent;
+    background: linear-gradient(#0a2540, #0a2540) padding-box,
+        linear-gradient(45deg, #00bfff, #40c4ff) border-box;
+    color: #ffffff;
+    padding: 1.1rem 3.5rem;
+    border-radius: 50px;
+    font-size: 1.3rem;
+    font-weight: 600;
+    transition: all 0.4s ease;
+}
+
+.hero-section .btn-outline-light:hover {
+    background: linear-gradient(45deg, #00bfff, #40c4ff) padding-box;
+    color: #0a2540;
+    transform: translateY(-6px);
+    box-shadow: 0 6px 20px rgba(0, 191, 255, 0.6);
+}
+
+@media (max-width: 991.98px) {
+    .hero-section {
+        padding: 7rem 0;
+    }
+    .hero-section h1 {
+        font-size: 3.5rem;
+    }
+    .hero-section .lead {
+        font-size: 1.3rem;
+    }
+    .hero-content {
+        max-width: 85%;
+    }
+    .hero-image {
+        max-width: 55%;
+    }
+}
+
+@media (max-width: 767.98px) {
+    .hero-section {
+        padding: 5rem 0;
+    }
+    .hero-section h1 {
+        font-size: 2.8rem;
+    }
+    .hero-section .lead {
+        font-size: 1.1rem;
+    }
+    .hero-image {
+        position: static;
+        max-width: 85%;
+        margin: 2.5rem auto;
+        transform: none;
+    }
+    .hero-content {
+        max-width: 100%;
+    }
+    .hero-buttons {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+    .hero-section .btn-outline-light {
+        margin-left: 0 !important;
+    }
+}
+
+/* Animation cho gradient text và nút */
+@keyframes gradientTextFlow {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* Chung cho cả 2 section */
+section#features,
+section#services {
+    background-color: #f4f7fa;
+    padding: 60px 0;
+}
+
+section#features h2,
+section#services h2 {
+    font-size: 2.4rem;
+    font-weight: bold;
+    color: #0054a6 !important;
+    text-align: center;
+    margin-bottom: 40px;
+    position: relative;
+}
+
+section h2::after {
+    content: "";
+    width: 80px;
+    height: 4px;
+    background-color: #007bff;
+    display: block;
+    margin: 10px auto 0;
+    border-radius: 2px;
+}
+
+/* ===== FEATURES ===== */
+#features .feature-card {
+    background: white;
+    border-radius: 16px;
+    padding: 30px 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+    height: 100%;
+}
+
+#features .feature-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 10px 24px rgba(0, 84, 166, 0.1);
+}
+
+#features .feature-card img {
+    width: 64px;
+    height: 64px;
+    margin-bottom: 20px;
+    transition: transform 0.3s ease;
+}
+
+#features .feature-card:hover img {
+    transform: scale(1.1);
+}
+
+#features .feature-card h5 {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #0054a6;
+    margin-bottom: 10px;
+}
+
+#features .feature-card p {
+    font-size: 0.95rem;
+    color: #555;
+}
+
+/* ===== SERVICES ===== */
+#services .card {
+    background: #fff;
+    border: none;
+    border-radius: 16px;
+    padding: 30px 20px;
+    text-align: center;
+    transition: all 0.3s ease;
+    height: 100%;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+#services .card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 10px 24px rgba(0, 123, 255, 0.1);
+}
+
+#services img {
+    width: 64px;
+    height: 64px;
+    margin-bottom: 20px;
+    transition: transform 0.3s ease;
+}
+
+#services .card:hover img {
+    transform: scale(1.1);
+}
+
+#services .card-title {
+    color: #0054a6;
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+#services .card-text {
+    color: #555;
+    font-size: 0.95rem;
+}
+
+/* APP */
+.app-card {
+    transition: box-shadow 0.3s ease;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+}
+
+.app-card:hover {
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.2),
+        0 0 20px rgba(255, 255, 255, 0.4), 0 0 30px rgba(255, 255, 255, 0.6);
+}
+
+.app-card h5 {
+    font-size: 1.1rem;
+    opacity: 0.95;
+}
+
+.app-card p {
+    font-size: 0.875rem;
+    opacity: 0.85;
+}
