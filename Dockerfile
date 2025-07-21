@@ -1,32 +1,31 @@
-# Use PHP 8.2 official image
-FROM php:8.2
+# Chọn image PHP có sẵn
+FROM php:8.2-fpm
 
-# Install system dependencies
+# Cài các extension cần thiết
 RUN apt-get update && apt-get install -y \
-    git curl zip unzip libpng-dev libonig-dev libxml2-dev libzip-dev \
-    && docker-php-ext-install pdo_mysql mbstring exif pcntl bcmath gd zip
+    libzip-dev unzip git curl \
+    && docker-php-ext-install zip pdo pdo_mysql
 
-# Install Composer
-COPY --from=composer:2 /usr/bin/composer /usr/bin/composer
+# Cài Composer
+COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 
-# Set working directory
+# Tạo thư mục code
 WORKDIR /var/www
 
-# Copy project files
+# Copy toàn bộ mã nguồn vào container
 COPY . .
 
-# Install Laravel dependencies
+# Cài thư viện PHP
 RUN composer install --no-dev --optimize-autoloader
 
-# Generate app key
-RUN php artisan key:generate
+# Copy file .env nếu chưa có
+COPY .env.example .env
 
-# Set permissions
-RUN chown -R www-data:www-data /var/www \
-    && chmod -R 755 /var/www/storage
+# Laravel permission
+RUN chmod -R 775 storage bootstrap/cache
 
-# Expose port 8080
+# EXPOSE PORT
 EXPOSE 8080
 
-# Start Laravel using Artisan
-CMD ["php", "artisan", "serve", "--host=0.0.0.0", "--port=8080"]
+# Lệnh chạy Laravel
+CMD php artisan serve --host=0.0.0.0 --port=8080
